@@ -8,31 +8,27 @@
           <div class="card-header bg-primary text-white">Student</div>
 
           <div class="card-body">
-            <h5>
+            <h5 class="card-title">
               {{ getName(student.name) }}
             </h5>
 
+            <h6>Marks:</h6>
             <p class="card-text mb-2">
-              <strong>Marks:</strong>
               {{ student.marks }}
             </p>
 
+            <h6>Result:</h6>
             <p class="card-text mb-2">
-              <strong>Result:</strong>
-
               @if (getResult(student.marks) === 'Pass') {
-                <span> Pass </span>
+                <span>Pass</span>
               } @else {
-                <span> Fail </span>
+                <span>Fail</span>
               }
             </p>
 
+            <h6>Grade:</h6>
             <p class="card-text">
-              <strong>Grade:</strong>
-
-              <span>
-                {{ getGrade(student.marks) }}
-              </span>
+              {{ getGrade(student.marks) }}
             </p>
           </div>
         </div>

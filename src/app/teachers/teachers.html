@@ -1,1 +1,30 @@
-<p>teachers works!</p>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Teacher Details</h2>
+
+  @for (teacher of teachers; track teacher.name) {
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ getName(teacher.name) }}
+        </h5>
+
+        <p class="card-text"><strong>Salary:</strong> ₹{{ teacher.salary }}</p>
+
+        <p class="card-text">
+          <strong>Salary after bonus:</strong>
+          ₹{{ getSalaryAfterBonus(teacher.salary) }}
+        </p>
+
+        <p class="card-text">
+          <strong>Experience:</strong>
+          {{ teacher.experience }} years
+        </p>
+
+        <p class="card-text">
+          <strong>Level:</strong>
+          {{ getExperienceLevel(teacher.experience) }}
+        </p>
+      </div>
+    </div>
+  }
+</div>
