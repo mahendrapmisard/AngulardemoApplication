@@ -7,30 +7,30 @@ import { Component } from '@angular/core';
   styleUrl: './students.css',
 })
 export class Students {
-   // Student data
   students = [
     {
-      name: 'Mahendra',
-      marks: 75
+      name: 'madan',
+      marks: 75,
     },
     {
-      name: 'Rahul',
-      marks: 35
+      name: 'mahendra',
+      marks: 35,
     },
     {
-      name: 'Priya',
-      marks: 90
+      name: 'giri',
+      marks: 90,
     },
     {
-      name: 'Anil',
-      marks: 55
-    }
+      name: 'pavithra',
+      marks: 55,
+    },
+    {
+      name: 'supraja',
+      marks: 70,
+    },
   ];
 
-
-  // Student-specific logic
   getResult(marks: number) {
-
     if (marks >= 40) {
       return 'Pass';
     }
@@ -38,10 +38,7 @@ export class Students {
     return 'Fail';
   }
 
-
-  // Student-specific logic
   getGrade(marks: number) {
-
     if (marks >= 80) {
       return 'A';
     }
@@ -57,11 +54,7 @@ export class Students {
     return 'F';
   }
 
-
-  // Common logic
   getName(name: string) {
-
     return name.toUpperCase();
-
   }
 }

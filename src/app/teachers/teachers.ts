@@ -9,22 +9,22 @@ import { Component } from '@angular/core';
 export class Teachers {
   teachers = [
     {
-      name: 'Suresh',
+      name: 'madan',
       salary: 50000,
       experience: 3,
     },
     {
-      name: 'Priya',
+      name: 'manvika',
       salary: 70000,
       experience: 8,
     },
     {
-      name: 'Anil',
+      name: 'kavya',
       salary: 45000,
       experience: 2,
     },
     {
-      name: 'Kavitha',
+      name: 'vamsi',
       salary: 90000,
       experience: 12,
     },
