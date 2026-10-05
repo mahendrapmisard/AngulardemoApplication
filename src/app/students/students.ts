@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StudentService } from '../student-service';
 
 @Component({
   selector: 'app-students',
@@ -7,54 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './students.css',
 })
 export class Students {
-  students = [
-    {
-      name: 'madan',
-      marks: 75,
-    },
-    {
-      name: 'mahendra',
-      marks: 35,
-    },
-    {
-      name: 'giri',
-      marks: 90,
-    },
-    {
-      name: 'pavithra',
-      marks: 55,
-    },
-    {
-      name: 'supraja',
-      marks: 70,
-    },
-  ];
 
-  getResult(marks: number) {
-    if (marks >= 40) {
-      return 'Pass';
-    }
+   students: any[] = [];
 
-    return 'Fail';
-  }
+  constructor(public studentService: StudentService) {
 
-  getGrade(marks: number) {
-    if (marks >= 80) {
-      return 'A';
-    }
+    this.students = this.studentService.getStudents();
 
-    if (marks >= 60) {
-      return 'B';
-    }
-
-    if (marks >= 40) {
-      return 'C';
-    }
-
-    return 'F';
-  }
-
-  getName(name: string) {
-    return name.toUpperCase();
   }
 }

@@ -2,14 +2,14 @@
 
 <div class="container">
   <div class="row g-4">
-    @for (student of students; track student.name) {
+    @for (student of this.students; track student.name) {
       <div class="col-md-6 col-lg-4">
         <div class="card shadow-sm">
           <div class="card-header bg-primary text-white">Student</div>
 
           <div class="card-body">
             <h5 class="card-title">
-              {{ getName(student.name) }}
+              {{ this.studentService.getName(student.name) }}
             </h5>
 
             <h6>Marks:</h6>
@@ -19,7 +19,7 @@
 
             <h6>Result:</h6>
             <p class="card-text mb-2">
-              @if (getResult(student.marks) === 'Pass') {
+              @if (this.studentService.getResult(student.marks) === 'Pass') {
                 <span>Pass</span>
               } @else {
                 <span>Fail</span>
@@ -28,7 +28,7 @@
 
             <h6>Grade:</h6>
             <p class="card-text">
-              {{ getGrade(student.marks) }}
+              {{ this.studentService.getGrade(student.marks) }}
             </p>
           </div>
         </div>
