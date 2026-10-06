@@ -14,11 +14,11 @@ export class StudentService {
       marks: 35,
     },
     {
-      name: 'supraja',
-      marks: 50,
+      name: 'vamsi',
+      marks: 80,
     },
     {
-      name: 'pavithra',
+      name: 'vishwa',
       marks: 50,
     },
     {
