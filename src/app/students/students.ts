@@ -21,11 +21,11 @@ export class Students {
       marks: 90,
     },
     {
-      name: 'pavithra',
+      name: 'vamsi',
       marks: 55,
     },
     {
-      name: 'supraja',
+      name: 'vishwa',
       marks: 70,
     },
   ];
