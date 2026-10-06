@@ -1,38 +1,39 @@
-<h2 class="text-center mb-4">Student Details</h2>
+<div class="container mt-4">
+  <h2>Students</h2>
 
-<div class="container">
-  <div class="row g-4">
-    @for (student of this.students; track student.name) {
-      <div class="col-md-6 col-lg-4">
-        <div class="card shadow-sm">
-          <div class="card-header bg-primary text-white">Student</div>
+  <p>Select a subject for each student:</p>
 
-          <div class="card-body">
-            <h5 class="card-title">
-              {{ this.studentService.getName(student.name) }}
-            </h5>
+  @for (student of sharedService.students; track student.id) {
+    <div class="mb-3">
+      <h3>{{ student.name }}</h3>
 
-            <h6>Marks:</h6>
-            <p class="card-text mb-2">
-              {{ student.marks }}
-            </p>
+      @for (subject of sharedService.subjects; track subject) {
+        <label class="me-3">
+          <input
+            type="radio"
+            [name]="'student-' + student.id"
+            [value]="subject"
+            [checked]="student.selectedSubject === subject"
+            (change)="selectSubject(student, subject)"
+          />
 
-            <h6>Result:</h6>
-            <p class="card-text mb-2">
-              @if (this.studentService.getResult(student.marks) === 'Pass') {
-                <span>Pass</span>
-              } @else {
-                <span>Fail</span>
-              }
-            </p>
+          {{ subject }}
+        </label>
+      }
 
-            <h6>Grade:</h6>
-            <p class="card-text">
-              {{ this.studentService.getGrade(student.marks) }}
-            </p>
-          </div>
-        </div>
-      </div>
-    }
-  </div>
+      @if (student.selectedSubject) {
+        <p class="mt-2">
+          Selected Subject:
+          <strong>{{ student.selectedSubject }}</strong>
+
+          | Teacher:
+          <strong>
+            {{ sharedService.getTeacherBySubject(student.selectedSubject)?.name }}
+          </strong>
+        </p>
+      }
+
+      <hr />
+    </div>
+  }
 </div>

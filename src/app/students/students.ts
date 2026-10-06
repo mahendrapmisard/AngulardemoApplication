@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StudentService } from '../student-service';
+import { SharedService } from '../shared-service';
 
 @Component({
   selector: 'app-students',
@@ -9,10 +9,13 @@ import { StudentService } from '../student-service';
 })
 export class Students {
   students: any[] = [];
+   constructor(
+    public sharedService: SharedService
+  ) {}
 
-  constructor(public studentService: StudentService) {
-    this.students = this.studentService.getStudents();
+  selectSubject(student: any, subject: string) {
+
+    this.sharedService.selectSubject(student, subject);
+
   }
-
-  // studentService = new StudentService();
 }

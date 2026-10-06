@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from '../shared-service';
 
 @Component({
   selector: 'app-teachers',
@@ -7,42 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './teachers.css',
 })
 export class Teachers {
-  teachers = [
-    {
-      name: 'madan',
-      salary: 50000,
-      experience: 3,
-    },
-    {
-      name: 'manvika',
-      salary: 70000,
-      experience: 8,
-    },
-    {
-      name: 'kavya',
-      salary: 45000,
-      experience: 2,
-    },
-    {
-      name: 'vamsi',
-      salary: 90000,
-      experience: 12,
-    },
-  ];
+  constructor(public sharedService: SharedService) {}
+  selectedStudents: any[] = [];
 
-  getSalaryAfterBonus(salary: number) {
-    return salary + 5000;
-  }
+  selectedTeacher: any = null;
 
-  getExperienceLevel(experience: number) {
-    if (experience >= 5) {
-      return 'Senior';
-    }
+  showStudents(teacher: any) {
+    this.selectedTeacher = teacher;
 
-    return 'Junior';
-  }
-
-  getName(name: string) {
-    return name.toUpperCase();
+    this.selectedStudents = this.sharedService.getStudentsBySubject(teacher.subject);
   }
 }
