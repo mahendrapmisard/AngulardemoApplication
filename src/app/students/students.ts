@@ -8,12 +8,11 @@ import { StudentService } from '../student-service';
   styleUrl: './students.css',
 })
 export class Students {
-
-   students: any[] = [];
+  students: any[] = [];
 
   constructor(public studentService: StudentService) {
-
     this.students = this.studentService.getStudents();
-
   }
+
+  // studentService = new StudentService();
 }

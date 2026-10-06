@@ -4,24 +4,27 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class StudentService {
-
   students = [
     {
       name: 'madan',
-      marks: 75
+      marks: 75,
     },
     {
       name: 'mahendra',
-      marks: 35
+      marks: 35,
+    },
+    {
+      name: 'supraja',
+      marks: 50,
     },
     {
       name: 'pavithra',
-      marks: 90
+      marks: 50,
     },
     {
       name: 'giri',
-      marks: 90
-    }
+      marks: 80,
+    },
   ];
 
   getStudents() {
@@ -29,7 +32,6 @@ export class StudentService {
   }
 
   getResult(marks: number) {
-
     if (marks >= 40) {
       return 'Pass';
     }
@@ -38,7 +40,6 @@ export class StudentService {
   }
 
   getGrade(marks: number) {
-
     if (marks >= 80) {
       return 'A';
     }
