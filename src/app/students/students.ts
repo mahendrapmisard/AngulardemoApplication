@@ -10,9 +10,12 @@ import { StudentService } from '../student-service';
 export class Students {
   students: any[] = [];
 
-  constructor(public studentService: StudentService) {
+  // constructor(public studentService: StudentService) {
+  //   this.students = this.studentService.getStudents();
+  // }
+
+  studentService = new StudentService();
+  constructor() {
     this.students = this.studentService.getStudents();
   }
-
-  // studentService = new StudentService();
 }
