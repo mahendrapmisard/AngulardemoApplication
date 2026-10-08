@@ -73,7 +73,7 @@ export class SharedService {
     },
     {
       id: 2,
-      name: 'Supraja',
+      name: 'sai',
       selectedSubject: '',
     },
     {
@@ -93,7 +93,7 @@ export class SharedService {
     },
     {
       id: 6,
-      name: 'Rahul',
+      name: 'supraja',
       selectedSubject: '',
     },
     {
