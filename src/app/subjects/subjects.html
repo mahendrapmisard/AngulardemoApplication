@@ -1,0 +1,63 @@
+<div class="container mt-4">
+
+  <h2>Subjects - Admin</h2>
+
+  <p>
+    Admin can enable or disable subjects.
+  </p>
+
+
+  @for (subject of sharedService.subjects; track subject.id) {
+
+    <div class="mb-4">
+
+      <h4>{{ subject.name }}</h4>
+
+
+      @if (subject.enabled) {
+
+        <p>
+          Status:
+          <strong>Enabled</strong>
+        </p>
+
+        <p>
+          Teacher:
+          <strong>
+            {{ sharedService.getTeacherBySubject(subject.name)?.name }}
+          </strong>
+        </p>
+
+        <button
+          class="btn btn-secondary btn-sm"
+          (click)="disableSubject(subject)">
+
+          Disable Subject
+
+        </button>
+
+
+      } @else {
+
+        <p>
+          Status:
+          <strong>Disabled</strong>
+        </p>
+
+        <button
+          class="btn btn-primary btn-sm"
+          (click)="enableSubject(subject)">
+
+          Enable Subject
+
+        </button>
+
+      }
+
+      <hr>
+
+    </div>
+
+  }
+
+</div>

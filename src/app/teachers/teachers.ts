@@ -5,17 +5,24 @@ import { SharedService } from '../shared-service';
   selector: 'app-teachers',
   imports: [],
   templateUrl: './teachers.html',
-  styleUrl: './teachers.css',
+  styleUrl: './teachers.css'
 })
 export class Teachers {
-  constructor(public sharedService: SharedService) {}
-  selectedStudents: any[] = [];
 
-  selectedTeacher: any = null;
+  constructor(
+    public sharedService: SharedService
+  ) {}
 
   showStudents(teacher: any) {
-    this.selectedTeacher = teacher;
 
-    this.selectedStudents = this.sharedService.getStudentsBySubject(teacher.subject);
+    teacher.showStudents = true;
+
   }
+
+  hideStudents(teacher: any) {
+
+    teacher.showStudents = false;
+
+  }
+
 }

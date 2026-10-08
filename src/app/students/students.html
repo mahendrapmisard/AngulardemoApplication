@@ -1,39 +1,63 @@
 <div class="container mt-4">
+
   <h2>Students</h2>
 
   <p>Select a subject for each student:</p>
 
   @for (student of sharedService.students; track student.id) {
-    <div class="mb-3">
-      <h3>{{ student.name }}</h3>
 
-      @for (subject of sharedService.subjects; track subject) {
+    <div class="mb-3">
+
+      <h4>{{ student.name }}</h4>
+
+      @for (
+        subject of sharedService.getEnabledSubjects();
+        track subject.id
+      ) {
+
         <label class="me-3">
+
           <input
             type="radio"
             [name]="'student-' + student.id"
-            [value]="subject"
-            [checked]="student.selectedSubject === subject"
-            (change)="selectSubject(student, subject)"
-          />
+            [value]="subject.name"
+            [checked]="student.selectedSubject === subject.name"
+            (change)="selectSubject(student, subject.name)"
+          >
 
-          {{ subject }}
+          {{ subject.name }}
+
         </label>
+
       }
 
       @if (student.selectedSubject) {
-        <p class="mt-2">
-          Selected Subject:
-          <strong>{{ student.selectedSubject }}</strong>
 
-          | Teacher:
+        <p class="mt-2">
+
+          Selected Subject:
           <strong>
-            {{ sharedService.getTeacherBySubject(student.selectedSubject)?.name }}
+            {{ student.selectedSubject }}
           </strong>
+
+          |
+
+          Teacher:
+          <strong>
+            {{
+              sharedService
+                .getTeacherBySubject(student.selectedSubject)?.name
+            }}
+          </strong>
+
         </p>
+
       }
 
-      <hr />
+      <hr>
+
     </div>
+
   }
+
 </div>

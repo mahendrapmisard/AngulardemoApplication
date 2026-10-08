@@ -1,24 +1,67 @@
 import { Injectable } from '@angular/core';
+
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
-  subjects = ['c sharp', 'Angular', 'SQL'];
+  subjects = [
+    {
+      id: 1,
+      name: 'SQL',
+      enabled: true,
+    },
+    {
+      id: 2,
+      name: 'C Sharp',
+      enabled: true,
+    },
+    {
+      id: 3,
+      name: 'Angular',
+      enabled: false,
+    },
+    {
+      id: 4,
+      name: 'Java',
+      enabled: false,
+    },
+    {
+      id: 5,
+      name: 'Python',
+      enabled: false,
+    },
+  ];
+
   teachers = [
     {
       id: 1,
       name: 'Madan',
-      subject: 'c sharp',
+      subject: 'SQL',
+      showStudents: false,
     },
     {
       id: 2,
       name: 'Manvika',
-      subject: 'Angular',
+      subject: 'C Sharp',
+      showStudents: false,
     },
     {
       id: 3,
       name: 'Kavya',
-      subject: 'SQL',
+      subject: 'Angular',
+      showStudents: false,
+    },
+    {
+      id: 4,
+      name: 'Ravi',
+      subject: 'Java',
+      showStudents: false,
+    },
+    {
+      id: 5,
+      name: 'Suresh',
+      subject: 'Python',
+      showStudents: false,
     },
   ];
 
@@ -30,7 +73,7 @@ export class SharedService {
     },
     {
       id: 2,
-      name: 'siva',
+      name: 'Supraja',
       selectedSubject: '',
     },
     {
@@ -40,7 +83,7 @@ export class SharedService {
     },
     {
       id: 4,
-      name: 'sandep',
+      name: 'Pavithra',
       selectedSubject: '',
     },
     {
@@ -50,7 +93,17 @@ export class SharedService {
     },
     {
       id: 6,
-      name: 'arsheed',
+      name: 'Rahul',
+      selectedSubject: '',
+    },
+    {
+      id: 7,
+      name: 'Kiran',
+      selectedSubject: '',
+    },
+    {
+      id: 8,
+      name: 'Sneha',
       selectedSubject: '',
     },
   ];
@@ -65,5 +118,17 @@ export class SharedService {
 
   getTeacherBySubject(subject: string) {
     return this.teachers.find((teacher) => teacher.subject === subject);
+  }
+
+  getEnabledSubjects() {
+    return this.subjects.filter((subject) => subject.enabled);
+  }
+
+  enableSubject(subject: any) {
+    subject.enabled = true;
+  }
+
+  disableSubject(subject: any) {
+    subject.enabled = false;
   }
 }
