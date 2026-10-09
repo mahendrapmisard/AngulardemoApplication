@@ -22,12 +22,12 @@ export class SharedService {
     },
     {
       id: 4,
-      name: 'Java',
+      name: 'html',
       enabled: false,
     },
     {
       id: 5,
-      name: 'Python',
+      name: 'Asp',
       enabled: false,
     },
   ];
@@ -53,14 +53,14 @@ export class SharedService {
     },
     {
       id: 4,
-      name: 'Ravi',
-      subject: 'Java',
+      name: 'Vamsi',
+      subject: 'html',
       showStudents: false,
     },
     {
       id: 5,
       name: 'Suresh',
-      subject: 'Python',
+      subject: 'Asp',
       showStudents: false,
     },
   ];
@@ -88,7 +88,7 @@ export class SharedService {
     },
     {
       id: 5,
-      name: 'Vamsi',
+      name: 'Varun',
       selectedSubject: '',
     },
     {
@@ -103,7 +103,7 @@ export class SharedService {
     },
     {
       id: 8,
-      name: 'Sneha',
+      name: 'siva',
       selectedSubject: '',
     },
   ];
