@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<!-- <div class="container mt-4">
 
   <h2>Teachers</h2>
 
@@ -86,4 +86,76 @@
 
   }
 
+</div> -->
+
+<div class="container mt-4">
+  <h2>Teachers and Student Attendance</h2>
+
+  <div class="mb-3">
+    <label for="attendanceDate" class="form-label">
+      Select Attendance Date
+    </label>
+
+    <input
+      id="attendanceDate"
+      type="date"
+      class="form-control"
+      [(value)]="selectedDate"
+      (change)="selectedDate = $any($event.target).value"
+    />
+  </div>
+
+  @for (teacher of sharedService.teachers; track teacher.id) {
+    @if (isSubjectEnabled(teacher.subject)) {
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4>{{ teacher.name }}</h4>
+          <p>Subject: {{ teacher.subject }}</p>
+
+          <button
+            class="btn btn-primary btn-sm mb-3"
+            (click)="teacher.showStudents = !teacher.showStudents"
+          >
+            {{ teacher.showStudents ? 'Hide Students' : 'View Students' }}
+          </button>
+
+          @if (teacher.showStudents) {
+            @for (
+              student of getStudentsBySubject(teacher.subject);
+              track student.id
+            ) {
+              <div class="border rounded p-3 mb-2">
+                <p class="mb-2">
+                  <strong>{{ student.name }}</strong>
+                </p>
+
+                <p>
+                  Current Status:
+                  <strong>
+                    {{ getAttendanceStatus(student, teacher.subject) }}
+                  </strong>
+                </p>
+
+                <button
+                  class="btn btn-success btn-sm me-2"
+                  (click)="markAttendance(student, teacher.subject, 'Present')"
+                >
+                  Present
+                </button>
+
+                <button
+                  class="btn btn-danger btn-sm"
+                  (click)="markAttendance(student, teacher.subject, 'Absent')"
+                >
+                  Absent
+                </button>
+              </div>
+            } @empty {
+              <p>No students have selected this subject.</p>
+            }
+          }
+        </div>
+      </div>
+    }
+  }
 </div>

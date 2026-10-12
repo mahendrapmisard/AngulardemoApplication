@@ -1,26 +1,17 @@
 import { Component } from '@angular/core';
 // import { SharedService } from '../shared.service';
-import { SharedService } from '../shared-service';
+import { SharedService } from '../services/shared-service';
 
 @Component({
   selector: 'app-students',
   imports: [],
   templateUrl: './students.html',
-  styleUrl: './students.css'
+  styleUrl: './students.css',
 })
 export class Students {
-
-  constructor(
-    public sharedService: SharedService
-  ) {}
+  constructor(public sharedService: SharedService) {}
 
   selectSubject(student: any, subject: string) {
-
-    this.sharedService.selectSubject(
-      student,
-      subject
-    );
-
+    this.sharedService.selectSubject(student, subject);
   }
-
 }

@@ -22,11 +22,6 @@ export class SharedService {
     },
     {
       id: 4,
-      name: 'html',
-      enabled: false,
-    },
-    {
-      id: 5,
       name: 'Asp',
       enabled: false,
     },
@@ -52,14 +47,8 @@ export class SharedService {
       showStudents: false,
     },
     {
-      id: 4,
-      name: 'Vamsi',
-      subject: 'html',
-      showStudents: false,
-    },
-    {
       id: 5,
-      name: 'Suresh',
+      name: 'Vamsi',
       subject: 'Asp',
       showStudents: false,
     },
@@ -94,16 +83,6 @@ export class SharedService {
     {
       id: 6,
       name: 'supraja',
-      selectedSubject: '',
-    },
-    {
-      id: 7,
-      name: 'Kiran',
-      selectedSubject: '',
-    },
-    {
-      id: 8,
-      name: 'siva',
       selectedSubject: '',
     },
   ];
