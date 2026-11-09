@@ -1,0 +1,68 @@
+<div class="container mt-4">
+  <h2>{{ appSettings.appName }}</h2>
+  <p class="text-muted">Managed by: {{ appSettings.admin }}</p>
+
+  <hr />
+
+  <h5>Supported Notification Types</h5>
+
+  <div class="mb-3">
+    @for (type of notificationTypes; track type) {
+      <span class="badge text-bg-secondary me-2">{{ type }}</span>
+    }
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Send Notification</h5>
+
+      <div class="mb-3">
+        <label class="form-label">Notification Type</label>
+        <select class="form-select" [(ngModel)]="selectedType">
+          @for (type of notificationTypes; track type) {
+            <option [value]="type">{{ type }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea
+          class="form-control"
+          rows="3"
+          [(ngModel)]="message"
+          [maxLength]="appSettings.maxMessageLength"
+          placeholder="Enter notification message"
+        ></textarea>
+
+        <small class="text-muted">
+          {{ message.length }} / {{ appSettings.maxMessageLength }} characters
+        </small>
+      </div>
+
+      <button class="btn btn-primary" (click)="sendNotification()">
+        Send Selected Notification
+      </button>
+
+      @if (result) {
+        <p class="alert alert-info mt-3 mb-0">{{ result }}</p>
+      }
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <h5 class="card-title">Default Notification Provider</h5>
+
+      <p>This section uses the default implementation configured with useClass: EmailService.</p>
+
+      <button class="btn btn-outline-primary" (click)="sendUsingDefault()">
+        Send Using Default Provider
+      </button>
+
+      @if (defaultResult) {
+        <p class="alert alert-success mt-3 mb-0">{{ defaultResult }}</p>
+      }
+    </div>
+  </div>
+</div>
